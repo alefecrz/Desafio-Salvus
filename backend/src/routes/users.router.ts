@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import userController from '../controllers/userController';
+import UserController from '../controllers/userController';
 
 const userRouter = Router();
 
-userRouter.post('/', userController.store);
+userRouter.post('/', UserController.store);
 
 export default userRouter;
