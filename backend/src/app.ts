@@ -1,6 +1,11 @@
 import express, { Application } from 'express';
+import 'express-async-errors';
 
 import routes from './routes';
+
+import globalError from './errors/GlobalError';
+
+import './database';
 
 class App {
   public server: Application;
@@ -9,13 +14,14 @@ class App {
     this.server = express();
     this.middlewares();
     this.routes();
+    this.server.use(globalError);
   }
 
-  middlewares() {
+  middlewares(): void {
     this.server.use(express.json());
   }
 
-  routes() {
+  routes(): void {
     this.server.use(routes);
   }
 }
