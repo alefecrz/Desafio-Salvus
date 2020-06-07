@@ -4,7 +4,8 @@ import 'express-async-errors';
 import routes from './routes';
 
 import globalError from './errors/GlobalError';
-import uploadConfig from './config/upload';
+import uploadConfigAvatar from './config/uploadAvatar';
+import uploadConfigDocs from './config/uploadDocs';
 
 import './database';
 
@@ -13,7 +14,8 @@ class App {
 
   constructor() {
     this.server = express();
-    this.server.use('/files', express.static(uploadConfig.directory));
+    this.server.use('/files', express.static(uploadConfigAvatar.directory));
+    this.server.use('/docs', express.static(uploadConfigDocs.directory));
     this.middlewares();
     this.routes();
     this.server.use(globalError);

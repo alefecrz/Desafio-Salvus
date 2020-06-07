@@ -5,7 +5,7 @@ import path from 'path';
 import AppError from '../errors/AppError';
 
 import User from '../models/User';
-import uploadConfig from '../config/upload';
+import uploadConfig from '../config/uploadAvatar';
 
 interface Request {
   user_id: string;
