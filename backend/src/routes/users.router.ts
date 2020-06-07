@@ -15,4 +15,6 @@ userRouter.use(ensureAuthenticated);
 
 userRouter.patch('/avatar', upload.single('avatar'), UserController.avatar);
 
+userRouter.put('/', UserController.update);
+
 export default userRouter;

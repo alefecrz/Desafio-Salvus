@@ -17,6 +17,10 @@ interface Request {
   state: string;
   cellphone: string;
   homephone: string;
+  field: string;
+  crm: string;
+  primary_specialty: string;
+  secundary_specialty: string;
 }
 class CreateUserService {
   public async execute({
@@ -31,6 +35,10 @@ class CreateUserService {
     state,
     cellphone,
     homephone,
+    field,
+    crm,
+    primary_specialty,
+    secundary_specialty,
   }: Request): Promise<User> {
     const userRepository = getRepository(User);
 
@@ -54,6 +62,10 @@ class CreateUserService {
       state,
       cellphone,
       homephone,
+      field,
+      crm,
+      primary_specialty,
+      secundary_specialty,
     });
 
     await userRepository.save(user);

@@ -47,6 +47,18 @@ class User {
   @Column()
   homephone: string;
 
+  @Column()
+  field: string;
+
+  @Column()
+  crm: string;
+
+  @Column()
+  primary_specialty: string;
+
+  @Column()
+  secundary_specialty: string;
+
   @CreateDateColumn()
   created_at: Date;
 
