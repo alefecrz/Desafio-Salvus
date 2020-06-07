@@ -5,11 +5,35 @@ import UpdateUserAvatarService from '../services/updateUserAvatarService';
 
 class UserController {
   store = async (request: Request, response: Response): Promise<Response> => {
-    const { email, name, password } = request.body;
+    const {
+      name,
+      email,
+      password,
+      cpf,
+      dateofbirth,
+      address,
+      cep,
+      city,
+      state,
+      cellphone,
+      homephone,
+    } = request.body;
 
     const createUser = new CreateUserService();
 
-    const user = await createUser.execute({ name, email, password });
+    const user = await createUser.execute({
+      name,
+      email,
+      password,
+      cpf,
+      dateofbirth,
+      address,
+      cep,
+      city,
+      state,
+      cellphone,
+      homephone,
+    });
 
     delete user.password;
 

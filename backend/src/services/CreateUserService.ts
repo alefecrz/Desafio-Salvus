@@ -9,10 +9,29 @@ interface Request {
   name: string;
   email: string;
   password: string;
+  cpf: string;
+  dateofbirth: Date;
+  address: string;
+  cep: string;
+  city: string;
+  state: string;
+  cellphone: string;
+  homephone: string;
 }
-
 class CreateUserService {
-  public async execute({ name, email, password }: Request): Promise<User> {
+  public async execute({
+    name,
+    email,
+    password,
+    cpf,
+    dateofbirth,
+    address,
+    cep,
+    city,
+    state,
+    cellphone,
+    homephone,
+  }: Request): Promise<User> {
     const userRepository = getRepository(User);
 
     const userAlredyExists = await userRepository.findOne({
@@ -27,6 +46,14 @@ class CreateUserService {
       name,
       email,
       password: hashedPassword,
+      cpf,
+      dateofbirth,
+      address,
+      cep,
+      city,
+      state,
+      cellphone,
+      homephone,
     });
 
     await userRepository.save(user);

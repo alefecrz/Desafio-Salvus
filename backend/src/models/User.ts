@@ -23,6 +23,30 @@ class User {
   @Column()
   avatar: string;
 
+  @Column()
+  cpf: string;
+
+  @Column()
+  dateofbirth: Date;
+
+  @Column()
+  address: string;
+
+  @Column()
+  cep: string;
+
+  @Column()
+  city: string;
+
+  @Column()
+  state: string;
+
+  @Column()
+  cellphone: string;
+
+  @Column()
+  homephone: string;
+
   @CreateDateColumn()
   created_at: Date;
 
