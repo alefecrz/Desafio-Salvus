@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Conteiner = styled.div`
   max-width: 1030px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 `;
@@ -47,7 +48,7 @@ export const Form = styled.form`
     color: #306937;
   }
 
-  a {
+  .forgotPass {
     font-size: 15px;
     line-height: 18px;
     margin: 10px 0 15px 30px;

@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Conteiner, Form } from './styles';
+import { Conteiner, LogoContent } from './styles';
 import logoImg from '../../assets/logo.svg';
 import personalDataImg from '../../assets/personalData.svg';
 import addressDataImg from '../../assets/addressData.svg';
 import professionalDataImg from '../../assets/professionalData.svg';
 
 const Register: React.FC = () => {
+  // const [email, setEmail] = useState('');
+  // const [senha, setSenha] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
+
+  function handleCreate(data: Object): void {
+    console.log(data);
+  }
+
   return (
     <>
-      <img className="logo" src={logoImg} alt="Salvus" />
+      <LogoContent>
+        <img className="logo" src={logoImg} alt="Salvus" />
+      </LogoContent>
       <Conteiner>
         <button type="submit" className="btn-secundary">
           Voltar
         </button>
         <h1>Registro</h1>
-        <Form>
+        <form onSubmit={handleCreate}>
           <hr />
           <div className="content">
             <div>
@@ -61,7 +73,7 @@ const Register: React.FC = () => {
             </div>
             <img src={professionalDataImg} alt="Personal Data" />
           </div>
-        </Form>
+        </form>
         <button type="submit" className="btn-primary">
           Cadastrar
         </button>
@@ -69,7 +81,7 @@ const Register: React.FC = () => {
       <footer>
         <hr />
         <div>
-          <span>Powered by: Álefe Cruz</span>
+          <span>Make by: Álefe Cruz</span>
           <span>© 2020</span>
         </div>
       </footer>

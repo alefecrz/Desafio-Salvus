@@ -1,4 +1,5 @@
 import express, { Application } from 'express';
+import cors from 'cors';
 import 'express-async-errors';
 
 import routes from './routes';
@@ -23,6 +24,7 @@ class App {
 
   middlewares(): void {
     this.server.use(express.json());
+    this.server.use(cors());
   }
 
   routes(): void {

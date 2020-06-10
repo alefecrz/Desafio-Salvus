@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
+export const LogoContent = styled.div`
+  width: 1030px;
+  margin: 0 auto;
+  display: flex;
+`;
+
 export const Conteiner = styled.div`
   width: 1030px;
+  margin-left: auto;
+  margin-right: auto;
   background: #ffffff;
   border: 1px solid #e0e0e0;
   margin-top: 13px;
@@ -52,5 +60,3 @@ export const Conteiner = styled.div`
     width: 320px;
   }
 `;
-
-export const Form = styled.form``;

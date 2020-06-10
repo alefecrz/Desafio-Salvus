@@ -12,6 +12,19 @@ export default createGlobalStyle`
   body {
     background: #F6F6F6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::-webkit-scrollbar {
+  width: 0.25rem;
+
+  }
+  body::-webkit-scrollbar-track {
+    background: #4B625E;
+
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #3E4A48;
   }
 
   body, input, button {
@@ -21,6 +34,8 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+
 
   h1 {
     font-style: normal;
@@ -56,6 +71,10 @@ export default createGlobalStyle`
   }
 
   .btn-secundary {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration:none;
     background: #fff;
     border-radius: 7px;
     height: 50px;
@@ -89,7 +108,8 @@ export default createGlobalStyle`
   }
 
   footer {
-    max-width: 100%;
+    max-width: 1030px;
+    margin: 0 auto;
     margin-top: 35px;
     hr {
       color: #B7B2B2;
@@ -109,8 +129,4 @@ export default createGlobalStyle`
 
   }
 
-  #root {
-    max-width: 1030px;
-    margin: 0 auto;
-  }
 `;
