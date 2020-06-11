@@ -3,10 +3,12 @@ import React from 'react';
 import { Bar } from './styles';
 
 const TopBar = () => {
+  const name = localStorage.getItem('name');
+
   return (
     <>
       <Bar>
-        <h3>Bem vindo, #####</h3>
+        <h3>Bem vindo, {name}</h3>
       </Bar>
     </>
   );

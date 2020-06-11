@@ -13,6 +13,6 @@ userRouter.use(ensureAuthenticated);
 
 userRouter.get('/', documentController.index);
 userRouter.post('/', upload.single('docs'), documentController.store);
-userRouter.delete('/', documentController.destroy);
+userRouter.delete('/:doc', documentController.destroy);
 
 export default userRouter;

@@ -15,6 +15,9 @@ const Login: React.FC = () => {
   interface ServerResponse {
     user: {
       id: string;
+      name: string;
+      avatar: string;
+      field: string;
     };
     token: string;
   }
@@ -26,7 +29,14 @@ const Login: React.FC = () => {
         email,
         password,
       });
+      localStorage.clear();
       localStorage.setItem('id', response.data.user.id);
+      localStorage.setItem('name', response.data.user.name);
+      localStorage.setItem(
+        'avatar',
+        `http://localhost:3333/files/${response.data.user.avatar}`,
+      );
+      localStorage.setItem('field', response.data.user.field);
       localStorage.setItem('token', response.data.token);
       history.push('/dashboard');
     } catch (err) {

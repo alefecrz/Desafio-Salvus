@@ -1,17 +1,51 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
+import api from '../../services/api';
 
 import Navbar from '../../components/Navbar';
 import Topbar from '../../components/Topbar';
 import FooterBar from '../../components/Footerbar';
 import BTNuser from '../../assets/BTNuser.svg';
 import { Main, Card, Graph } from './styles';
-import Pie from '../../components/Pie';
 
+import Chart from '../../components/Chart';
+
+interface ServerResponse {
+  amountByField: Array<AmountByField>;
+  registerAmount: number;
+}
+
+interface AmountByField {
+  name: string;
+  value: number;
+}
 const Dashboard: React.FC = () => {
-  const id = localStorage.getItem('id');
-  const token = localStorage.getItem('token');
-
-  useEffect(() => {});
+  const [amountsField, setAmountField] = useState([
+    {
+      name: 'Técnico de Enfermagem',
+      value: 0,
+    },
+    {
+      name: 'Médico',
+      value: 0,
+    },
+    {
+      name: 'Enfermeiro',
+      value: 0,
+    },
+    {
+      name: 'Fonoaudiologo',
+      value: 0,
+    },
+  ]);
+  const [registers, setRegisters] = useState(0);
+  useEffect(() => {
+    api.get<ServerResponse>('info').then((response) => {
+      // setAmountByField(response);
+      setRegisters(response.data.registerAmount);
+      setAmountField(response.data.amountByField);
+    });
+  }, []);
 
   return (
     <>
@@ -22,62 +56,32 @@ const Dashboard: React.FC = () => {
           <h4>Total de profissionais cadastrados</h4>
           <div>
             <img src={BTNuser} alt="users" />
-            <h1>10 234</h1>
+            <h1>{registers}</h1>
           </div>
         </Card>
-        <Card>
-          <h4>Médicos</h4>
-          <div>
-            <h1>10 234</h1>
-          </div>
-        </Card>
-        <Card>
-          <h4>Enfermeiros</h4>
-          <div>
-            <h1>10 234</h1>
-          </div>
-        </Card>
-        <Card>
-          <h4>Fonoaudiologia</h4>
-          <div>
-            <h1>10 234</h1>
-          </div>
-        </Card>
-        <Card>
-          <h4>Técnicos de Enfermagem</h4>
-          <div>
-            <h1>10 234</h1>
-          </div>
-        </Card>
+        {amountsField.map((value) => (
+          <Card key={value.name}>
+            <h4>{value.name}</h4>
+            <div>
+              <h1>{value.value}</h1>
+            </div>
+          </Card>
+        ))}
       </Main>
       <Graph>
         <div>
           <h4>Profissionais x Categoria</h4>
           <div className="conteiner">
             <ul>
-              <li>
-                <h3>value</h3>
-                <span>231</span>
-              </li>
-              <hr />
-              <li>
-                <h3>value</h3>
-                <span>231</span>
-              </li>
-              <hr />
-              <li>
-                <h3>value</h3>
-                <span>231</span>
-              </li>
-              <hr />
-              <li>
-                <h3>value</h3>
-                <span>231</span>
-              </li>
-              <hr />
+              {amountsField.map((value) => (
+                <li key={value.name}>
+                  <h3>{value.name}</h3>
+                  <span>{value.value}</span>
+                </li>
+              ))}
             </ul>
             <div className="grafh">
-              <Pie />
+              <Chart amount={amountsField} />
             </div>
           </div>
         </div>

@@ -25,11 +25,11 @@ class DocumentsController {
       documentName: request.file.filename,
     });
 
-    return response.json(document);
+    return response.json({ doc: document });
   };
 
   destroy = async (request: Request, response: Response): Promise<Response> => {
-    const { doc } = request.body;
+    const { doc } = request.params;
 
     const deleteDocument = new DeleteDocumentService();
 

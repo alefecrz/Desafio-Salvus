@@ -33,7 +33,12 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1,{"extensions":[".tsx"]}],
     "react/jsx-one-expression-per-line": "off",
+    "camelcase": [2, {"properties": "never"}],
     "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-curly-newline": "off",
+    "react/no-array-index-key": "off",
+    "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {

@@ -8,8 +8,9 @@ interface Request {
   user_id: string;
   documentName: string;
 }
+
 class CreateDocumentService {
-  public async execute({ user_id, documentName }: Request): Promise<Document> {
+  public async execute({ user_id, documentName }: Request): Promise<string> {
     const documentRepository = getRepository(Document);
 
     const [, documentAmount] = await documentRepository.findAndCount({
@@ -28,7 +29,7 @@ class CreateDocumentService {
 
     await documentRepository.save(document);
 
-    return document;
+    return document.doc;
   }
 }
 

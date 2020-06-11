@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import BTNexit from '../../assets/BTNexit.svg';
 import BTNlogo from '../../assets/BTNlogo.svg';
 import BTNuser from '../../assets/BTNuser.svg';
+import BTNupload from '../../assets/BTNupload.svg';
 import BTNdashboard from '../../assets/BTNdashboard.svg';
-import profile from '../../assets/profile.png';
-
 import { Bar } from './styles';
 
 const NavBar = () => {
+  const history = useHistory();
+  const [avatar] = useState(localStorage.getItem('avatar'));
+  // const id = localStorage.getItem('id');
+  const name = localStorage.getItem('name');
+  const field = localStorage.getItem('field');
+  // const token = localStorage.getItem('token');
+
+  function handleLogout(): void {
+    localStorage.clear();
+    history.push('/');
+  }
+
   return (
     <>
       <Bar>
@@ -17,29 +29,37 @@ const NavBar = () => {
             <div>
               <img className="shortLogo" src={BTNlogo} alt="logo" />
               <div className="profile">
-                <img src={profile} alt="logo" />
-                <h5>Nome user</h5>
-                <h6>Funtion</h6>
+                <img
+                  src={
+                    avatar === 'http://localhost:3333/files/null' ||
+                    avatar === null
+                      ? BTNuser
+                      : avatar
+                  }
+                  alt="logo"
+                />
+                <h5>{name}</h5>
+                <h6>{field}</h6>
               </div>
             </div>
           </li>
           <li>
-            <a href="/">
+            <Link to="/dashboard">
               <img src={BTNdashboard} alt="logo" />
               <span>Dashboard</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/">
-              <img src={BTNuser} alt="logo" />
-              <span>Profile</span>
-            </a>
+            <Link to="/uploads">
+              <img src={BTNupload} alt="logo" />
+              <span>Uploads</span>
+            </Link>
           </li>
           <li>
-            <a href="/">
+            <button type="button" onClick={handleLogout}>
               <img src={BTNexit} alt="logo" />
               <span>Exit</span>
-            </a>
+            </button>
           </li>
         </ul>
       </Bar>

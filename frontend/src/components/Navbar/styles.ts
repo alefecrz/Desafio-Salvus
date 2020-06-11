@@ -56,6 +56,7 @@ export const Bar = styled.nav`
         }
 
         h5 {
+          width: 200px;
           font-weight: bold;
           font-size: 14px;
           line-height: 16px;
@@ -63,8 +64,9 @@ export const Bar = styled.nav`
         }
 
         h6 {
+          width: 150px;
           font-weight: normal;
-          font-size: 14px;
+          font-size: 12px;
           line-height: 16px;
           color: #b7b2b2;
         }
@@ -93,7 +95,10 @@ export const Bar = styled.nav`
         }
       }
 
-      a {
+      a,
+      button {
+        background: #4b625e;
+        border: 0;
         display: flex;
         align-items: center;
         height: 60px;
@@ -102,7 +107,6 @@ export const Bar = styled.nav`
         &:hover {
           width: 225px;
           background: #5f7d77;
-          color: #9dd7cc;
         }
         img {
           min-width: 20px;
