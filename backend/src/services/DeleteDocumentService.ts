@@ -24,9 +24,9 @@ class CreateDocumentService {
 
     const documentFilePath = path.join(uploadConfigDoc.directory, document.doc);
 
-    const documentFileExists = await fs.promises.stat(documentFilePath);
+    const documentFileExists = await fs.statSync(documentFilePath);
 
-    if (documentFileExists) await fs.promises.unlink(documentFilePath);
+    if (documentFileExists) await fs.unlinkSync(documentFilePath);
 
     await documentRepository.remove(document);
 
