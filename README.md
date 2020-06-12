@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="salvus-logo" src="/logo.svg" width="200px" />
+    <img alt="salvus-logo" src="assets/logo.svg" width="200px" />
 </h1>
 <div  align="center">
   <h3>
@@ -9,7 +9,7 @@
 <p align="center">“Sua única limitação é você mesmo”!</blockquote>
 
 <p align="center">
-  <img alt="salvus-logo" src="/final.gif" width="1000px" />
+  <img alt="salvus-logo" src="assets/final.gif" width="1000px" />
 </p>
 
 <p align="center">
