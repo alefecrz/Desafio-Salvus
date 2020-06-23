@@ -3,7 +3,7 @@
 </h1>
 <div  align="center">
   <h3>
-    Salvus é uma aplicação que conecta proficionais de saúde e os direciona para atendimentos. <br />
+    Salvus é uma aplicação que conecta profissionais de saúde e os direciona para atendimentos. <br />
   </h3>
 </div>
 <p align="center">“Sua única limitação é você mesmo”!</blockquote>
