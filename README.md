@@ -77,5 +77,5 @@ $ yarn start
 
 ---
 
-Desafio feito com ♥ by Álefe Cruz :wave: [Acesse meu portifólio!](https://www.alefecruz.com/)
+Desafio feito com ♥ by Álefe Cruz :wave: [Acesse meu portifólio!](https://www.alefecruz.com.br/)
 
